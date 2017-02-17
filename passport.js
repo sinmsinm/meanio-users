@@ -133,7 +133,7 @@ module.exports = function(passport) {
     },
     function(accessToken, refreshToken, profile, done) {
       User.findOne({
-        'github.id': profile.id
+        'github.id': Number(profile.id)
       }, function(err, user) {
         if (user) {
           return done(err, user);
@@ -166,7 +166,7 @@ module.exports = function(passport) {
     },
     function(accessToken, refreshToken, profile, done) {
       User.findOne({
-        'google.id': profile.id
+        'google.id': Number(profile.id)
       }, function(err, user) {
         if (user) {
           return done(err, user);
